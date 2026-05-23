@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Airline Manager Pro - إدارة الخطوط الجوية المتقدمة</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="stats-container">
+    <div class="stat-item">
+      <span class="stat-label">الرصيد</span>
+      <span class="stat-value money" id="moneyDisplay">$0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">النقاط</span>
+      <span class="stat-value points" id="pointsDisplay">0</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">المستوى</span>
+      <span class="stat-value" id="levelDisplay">1</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">السمعة</span>
+      <span class="stat-value reputation" id="reputationDisplay">⭐⭐⭐</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-label">الشهر</span>
+      <span class="stat-value" id="monthDisplay">1</span>
+    </div>
+  </div>
+</div>
+
+<div class="progress-bar-container">
+  <span>XP: <span id="xpDisplay">0</span>/<span id="xpToNext">1000</span></span>
+  <div class="xp-bar">
+    <div class="xp-fill" id="xpFill"></div>
+  </div>
+</div>
+
+<div class="main-container">
+  <div id="map"></div>
+  
+  <div class="side-panel">
+    <div class="side-btn" onclick="openModal('dashboard')" title="لوحة التحكم">
+      <span class="icon">📊</span>
+      <span class="label">لوحة</span>
+    </div>
+    <div class="side-btn" onclick="openModal('packs')" title="عروض خاصة">
+      <span class="icon">💰</span>
+      <span class="label">عروض</span>
+    </div>
+    <div class="side-btn" onclick="openModal('shop')" title="متجر الطائرات">
+      <span class="icon">🛒</span>
+      <span class="label">طائرات</span>
+    </div>
+    <div class="side-btn" onclick="openModal('fleet')" title="إدارة الأسطول">
+      <span class="icon">✈️</span>
+      <span class="label">أسطول</span>
+    </div>
+    <div class="side-btn" onclick="openModal('routes')" title="الرحلات">
+      <span class="icon">🛫</span>
+      <span class="label">رحلات</span>
+    </div>
+    <div class="side-btn" onclick="openModal('staff')" title="إدارة الطاقم">
+      <span class="icon">👥</span>
+      <span class="label">طاقم</span>
+    </div>
+    <div class="side-btn" onclick="openModal('branches')" title="الفروع">
+      <span class="icon">🏢</span>
+      <span class="label">فروع</span>
+    </div>
+    <div class="side-btn" onclick="openModal('research')" title="البحث والتطوير">
+      <span class="icon">🔬</span>
+      <span class="label">بحث</span>
+    </div>
+    <div class="side-btn" onclick="openModal('missions')" title="المهام">
+      <span class="icon">🎯</span>
+      <span class="label">مهام</span>
+    </div>
+    <div class="side-btn" onclick="openModal('partnerships')" title="الشراكات">
+      <span class="icon">🤝</span>
+      <span class="label">شراكات</span>
+    </div>
+    <div class="side-btn" onclick="openModal('stats')" title="الإحصائيات">
+      <span class="icon">📈</span>
+      <span class="label">إحصائيات</span>
+    </div>
+    <div class="side-btn" onclick="openModal('settings')" title="الإعدادات">
+      <span class="icon">⚙️</span>
+      <span class="label">إعدادات</span>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <span class="modal-title" id="modalTitle">العنوان</span>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- المحتوى ديناميكي -->
+    </div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="game.js"></script>
+<script src="systems.js"></script>
+<script src="ui.js"></script>
+</body>
+</html>
